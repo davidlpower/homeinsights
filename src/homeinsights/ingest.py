@@ -9,16 +9,19 @@ from homeinsights.mappers import to_reading_row
 from homeinsights.models import Reading
 from homeinsights.schemas import HAState
 
-ENTITIES = ["sensor.living_room_temperature"]
+ENTITIES = [
+    "sensor.bathroom_meter_temperature",
+    "sensor.bathroom_meter_humidity",
+]
 
 
 async def store(states: list[HAState]) -> None:
     if not states:
         return
     rows = [to_reading_row(s) for s in states]
-    stmt = insert(Reading).values(rows).on_conflict_do_nothing(index_elements=["entity_id", "recorded_at"])
+    statement = insert(Reading).values(rows).on_conflict_do_nothing(index_elements=["entity_id", "recorded_at"])
     async with SessionLocal() as session:
-        await session.execute(stmt)
+        await session.execute(statement)
         await session.commit()
 
 
@@ -34,7 +37,7 @@ async def main() -> None:
 
 
 def run() -> None:
-    """Synchronous entry point used by the `home-insights-ingest` script."""
+    """Synchronous entry point used by the `homeinsights` script."""
     asyncio.run(main())
 
 
