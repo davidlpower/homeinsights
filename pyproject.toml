@@ -27,7 +27,7 @@ dependencies = [
 ]
 
 [project.scripts]
-home-insights-ingest = "homeinsights.ingest:run"
+homeinsights = "homeinsights.ingest:run"
 
 [project.urls]
 Homepage = "https://davidlpower.github.io/homeinsights/"
@@ -116,3 +116,6 @@ ignore = [
 
 [tool.ruff.format]
 preview = true
+
+[tool.deptry.per_rule_ignores]
+DEP002 = ["alembic", "asyncpg"]

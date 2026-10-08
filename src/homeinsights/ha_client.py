@@ -24,4 +24,12 @@ async def fetch_history(client: httpx.AsyncClient, entity_id: str, start: dateti
         params={"filter_entity_id": entity_id, "end_time": end.isoformat()},
     )
     response.raise_for_status()
-    return [state for series in _history.validate_python(response.json()) for state in series]
+
+    raw = response.json()  # list of lists of dicts
+    all_series = _history.validate_python(raw)  # list of lists of HAState objects
+
+    states = []
+    for series in all_series:  # one inner list per entity
+        for state in series:  # each HAState in that entity's history
+            states.append(state)
+    return states
