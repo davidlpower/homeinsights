@@ -14,6 +14,6 @@ class Reading(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     entity_id: Mapped[str] = mapped_column(String(255), index=True)
-    raw_state: Mapped[str] = mapped_column(String(255))  # exactly what HA sent
-    value: Mapped[float | None]  # parsed number, NULL if not numeric
+    raw_state: Mapped[str] = mapped_column(String(255))
+    value: Mapped[float | None]
     recorded_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))

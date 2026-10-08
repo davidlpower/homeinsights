@@ -12,6 +12,16 @@ from homeinsights.schemas import HAState
 ENTITIES = [
     "sensor.bathroom_meter_temperature",
     "sensor.bathroom_meter_humidity",
+    "sensor.bedroom_meter_temperature",
+    "sensor.bedroom_meter_humidity",
+    "sensor.hall_meter_temperature",
+    "sensor.hall_meter_humidity",
+    "sensor.kitchen_meter_temperature",
+    "sensor.kitchen_meter_humidity",
+    "sensor.office_meter_temperature",
+    "sensor.office_meter_humidity",
+    "sensor.outdoor_meter_temperature",
+    "sensor.outdoor_meter_humidity",
 ]
 
 
