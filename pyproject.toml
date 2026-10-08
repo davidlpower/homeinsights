@@ -26,6 +26,9 @@ dependencies = [
     "sqlalchemy[asyncio]>=2.0.54",
 ]
 
+[project.scripts]
+home-insights-ingest = "homeinsights.ingest:run"
+
 [project.urls]
 Homepage = "https://davidlpower.github.io/homeinsights/"
 Repository = "https://github.com/davidlpower/homeinsights"
@@ -58,6 +61,7 @@ check_untyped_defs = true
 warn_return_any = true
 warn_unused_ignores = true
 show_error_codes = true
+plugins = ["pydantic.mypy"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
