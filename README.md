@@ -1,8 +1,6 @@
 # homeinsights
 
-[![Release](https://img.shields.io/github/v/release/davidlpower/homeinsights)](https://img.shields.io/github/v/release/davidlpower/homeinsights)
 [![Build status](https://img.shields.io/github/actions/workflow/status/davidlpower/homeinsights/main.yml?branch=main)](https://github.com/davidlpower/homeinsights/actions/workflows/main.yml?query=branch%3Amain)
-[![codecov](https://codecov.io/gh/davidlpower/homeinsights/branch/main/graph/badge.svg)](https://codecov.io/gh/davidlpower/homeinsights)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/davidlpower/homeinsights)](https://img.shields.io/github/commit-activity/m/davidlpower/homeinsights)
 [![License](https://img.shields.io/github/license/davidlpower/homeinsights)](https://img.shields.io/github/license/davidlpower/homeinsights)
 
