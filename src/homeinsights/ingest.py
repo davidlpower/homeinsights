@@ -22,6 +22,8 @@ ENTITIES = [
     "sensor.office_meter_humidity",
     "sensor.outdoor_meter_temperature",
     "sensor.outdoor_meter_humidity",
+    "sensor.livingroom_meter_temperature",
+    "sensor.livingroom_meter_humidity",
 ]
 
 
