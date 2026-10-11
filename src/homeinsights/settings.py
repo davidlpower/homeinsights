@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     ha_base_url: str = "http://homeassistant.local:8123"
     ha_token: SecretStr
     database_url: str
+    entities: list[str]
 
 
 settings = Settings()

@@ -8,23 +8,7 @@ from homeinsights.ha_client import fetch_history, make_client
 from homeinsights.mappers import to_reading_row
 from homeinsights.models import Reading
 from homeinsights.schemas import HAState
-
-ENTITIES = [
-    "sensor.bathroom_meter_temperature",
-    "sensor.bathroom_meter_humidity",
-    "sensor.bedroom_meter_temperature",
-    "sensor.bedroom_meter_humidity",
-    "sensor.hall_meter_temperature",
-    "sensor.hall_meter_humidity",
-    "sensor.kitchen_meter_temperature",
-    "sensor.kitchen_meter_humidity",
-    "sensor.office_meter_temperature",
-    "sensor.office_meter_humidity",
-    "sensor.outdoor_meter_temperature",
-    "sensor.outdoor_meter_humidity",
-    "sensor.livingroom_meter_temperature",
-    "sensor.livingroom_meter_humidity",
-]
+from homeinsights.settings import settings
 
 
 async def store(states: list[HAState]) -> None:
@@ -42,7 +26,7 @@ async def main() -> None:
     start = end - timedelta(days=1)
 
     async with make_client() as client:
-        for entity_id in ENTITIES:
+        for entity_id in settings.entities:
             states = await fetch_history(client, entity_id, start, end)
             await store(states)
             print(f"{entity_id}: fetched {len(states)} states")
