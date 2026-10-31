@@ -58,10 +58,14 @@ To finalize the set-up for publishing to PyPI, see [here](https://fpgmaas.github
 For activating the automatic documentation with MkDocs/Zensical, see [here](https://fpgmaas.github.io/cookiecutter-uv/features/docs_tool/#deploying-to-github-pages).
 To enable the code coverage reports, see [here](https://fpgmaas.github.io/cookiecutter-uv/features/codecov/).
 
-## Releasing a new version
+### Database  via Docker
 
+Alternative to docker is colima
+`brew install colima`
+`colima start -f`
 
+Start the database in the background (run from the directory containing the compose file):
+`docker compose up -d`
 
----
-
-Repository initiated with [osprey-oss/cookiecutter-uv](https://github.com/osprey-oss/cookiecutter-uv).
+Open a psql shell inside the container:
+`docker compose exec db sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB"'`
