@@ -31,5 +31,6 @@ async def fetch_history(client: httpx.AsyncClient, entity_id: str, start: dateti
     states = []
     for series in all_series:  # one inner list per entity
         for state in series:  # each HAState in that entity's history
-            states.append(state)
+            if state.state is not None:  # skip unavailable/unknown readings
+                states.append(state)
     return states
